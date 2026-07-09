@@ -4,13 +4,13 @@ import prisma from "@/lib/prisma";
 type ApiResponse =
     | {
           success: true;
-          topic: {
+          notice: {
               id: number;
               title: string;
-              topicName: string;
+              body: string;
               category: string;
               priority: string;
-              createdAt: Date;
+              publishDate: Date;
           };
       }
     | {
