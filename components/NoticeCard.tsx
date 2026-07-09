@@ -1,5 +1,7 @@
 import { RiDeleteBinLine } from "react-icons/ri";
 import { MdOutlineEdit } from "react-icons/md";
+import Link from "next/link";
+import EditTopic from "@/pages/editTopic";
 
 
 export default function NoticeCard(){
@@ -21,7 +23,7 @@ export default function NoticeCard(){
                 </div>
                 <div>
                     <div className="flex gap-2">
-                        <button className="px-2  py-2  text-[15px] border-2 rounded-lg flex items-center gap-1"> <MdOutlineEdit className="text-[20px]" /> Edit</button>
+                        <Link href="/editTopic" className="px-2  py-2  text-[15px] border-2 rounded-lg flex items-center gap-1"> <MdOutlineEdit className="text-[20px]" /> Edit</Link>
                         <button className="px-2  py-2 text-red-500 text-[15px] border-2 rounded-lg flex items-center gap-1 "> <RiDeleteBinLine /> Delete</button>
                     </div>
                 </div>
