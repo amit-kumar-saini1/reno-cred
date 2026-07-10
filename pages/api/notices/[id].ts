@@ -16,6 +16,10 @@ type NoticeByIdResponse =
           notice: NoticePayload;
       }
     | {
+          success: true;
+          message: string;
+      }
+    | {
           success: false;
           error: string;
       };
@@ -91,6 +95,17 @@ export default async function handler(
         });
     }
 
-    res.setHeader("Allow", ["GET", "PUT"]);
+    if (req.method === "DELETE") {
+        await prisma.notice.delete({
+            where: { id },
+        });
+
+        return res.status(200).json({
+            success: true,
+            message: "Notice deleted successfully.",
+        });
+    }
+
+    res.setHeader("Allow", ["GET", "PUT", "DELETE"]);
     return res.status(405).json({ success: false, error: "Method not allowed" });
 }

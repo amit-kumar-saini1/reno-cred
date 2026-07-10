@@ -50,6 +50,9 @@ export default function Home() {
             ...notice,
             publishDate: new Date(notice.publishDate),
           }}
+          onDeleted={(deletedId) => {
+            setNotices((current) => current.filter((noticeItem) => noticeItem.id !== deletedId));
+          }}
         />
       ))}
     </div>
