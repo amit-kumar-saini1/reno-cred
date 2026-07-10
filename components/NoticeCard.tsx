@@ -56,7 +56,7 @@ export default function NoticeCard({ notice, onDeleted }: NoticeCardProps){
                 <div >
                     <div className="flex gap-5 items-center"> 
                         <div className="px-2 text-[18px] bg-white rounded-lg">{notice.category}</div>
-                        <div className="px-2 text-[18px] bg-[#ec3f3f] rounded-lg text-[#ffffff]">{notice.priority}</div>
+                        <div className={`px-2 text-[18px] rounded-lg ${notice.priority === 'Urgent' ? 'bg-[#ec3f3f] text-white' : 'bg-white text-black'}`}> {notice.priority} </div>
                     </div>
                     <div className="mt-2">
                         <h1 className="text-[22px] font-bold  ">{notice.title}</h1>
